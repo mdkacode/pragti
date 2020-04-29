@@ -3,10 +3,10 @@ import {Dimensions} from 'react-native';
 import {LightColor} from '../../Modules/GlobalStyles/GlobalColors';
 // Global App Width and Height
 const windowWidth = Dimensions.get('window').width;
-// const windowHeight = Dimensions.get('window').height;
+//  const windowHeight = Dimensions.get('window').height;
 export const LayoutContainer = styled.ScrollView`
   flex: 1;
-  flex-direction: row;
+  flex-direction: column;
 `;
 
 export const TextBox = styled.TextInput`
@@ -36,7 +36,6 @@ export const PrimaryButton = styled.Button`
 `;
 
 export const Container = styled.View`
-  flex: 1;
   flex-direction: row;
 `;
 export const AppView = styled.View`

@@ -13,7 +13,8 @@ const ENTRIES1 = [
   {
     title: 'Beautiful and dramatic Antelope Canyon',
     subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-    illustration: 'https://i.imgur.com/UYiroysl.jpg',
+    illustration:
+      'https://i.pinimg.com/originals/6c/55/bb/6c55bb682541f51946025683440b8d10.jpg',
   },
   {
     title: 'Earlier this morning, NYC',
@@ -38,7 +39,7 @@ const ENTRIES1 = [
 ];
 const {width: screenWidth} = Dimensions.get('window');
 
-const MyCarousel = props => {
+const MyCarousel = (props: any) => {
   const [entries, setEntries] = useState([]);
   const carouselRef = useRef(null);
 
@@ -51,24 +52,27 @@ const MyCarousel = props => {
   }, []);
 
   const renderItem = ({item, index}, parallaxProps) => {
-    return <View style={styles.item} >
+    return (
+      <View style={styles.item}>
         <ParallaxImage
+          source={{uri: item.illustration}}
           containerStyle={styles.imageContainer}
           style={styles.image}
-          parallaxFactor={0.4}
+          parallaxFactor={0.7}
           {...parallaxProps}
         />
         <Text style={styles.title} numberOfLines={2}>
           {item.title}
         </Text>
       </View>
+    );
   };
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={goForward}>
+      {/* <TouchableOpacity onPress={goForward}>
         <Text>go to next slide</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       <Carousel
         ref={carouselRef}
         sliderWidth={screenWidth}
@@ -90,7 +94,8 @@ const styles = StyleSheet.create({
   },
   item: {
     width: screenWidth - 60,
-    height: screenWidth - 60,
+    height: screenWidth - 200,
+    marginTop: 30,
   },
   imageContainer: {
     flex: 1,

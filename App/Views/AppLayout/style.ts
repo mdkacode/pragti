@@ -6,6 +6,7 @@ const windowWidth = Dimensions.get('window').width;
 //  const windowHeight = Dimensions.get('window').height;
 export const LayoutContainer = styled.ScrollView`
   flex: 1;
+  background-color:#eeeeee;
   flex-direction: column;
 `;
 
@@ -23,6 +24,7 @@ export const RowView = styled.Text`
   padding-left: 12px;
   font-size: 25px;
   font-weight: 900;
+  color : ${(p: textProps) => (p.fontColor ? p.fontColor : 'white')};
   font-family: 'OpenSans-Bold';
 `;
 
@@ -44,21 +46,48 @@ export const AppView = styled.View`
   margin-top: ${(p: viewProps) => (p.top ? p.top : 0)}px;
   align-items: ${(p: viewProps) => (p.iPosition ? p.iPosition : 'flex-start')};
   margin-top: 15px;
+  padding-left:${(p: viewProps) => (p.marginLeft ? p.marginLeft : 0)}px;
 `;
 
 export const IconImage = styled.Image`
   width: ${(p: IconImage) => p.width}px;
   height: ${(p: IconImage) => p.height}px;
+  margin-left: ${(p: IconImage) => (p.marginLeft ? p.marginLeft : 0) }px;
 `;
+
+export const AppFooter = styled.View`
+  width: ${(p: viewProps) => (p.width ? p.width : 0)}px;
+  height: ${(p: viewProps) => (p.height ? p.height : 0)}px;
+  position: absolute;
+  background-color:#aa00ff;
+  color:white;
+  border-radius: 10px;
+  bottom: 0;
+`;
+
+export const FooterCircle = styled.View`
+border-radius: 60px;
+width:70px;
+bottom:30px;
+height:60px;
+padding-bottom:70px;
+background-color:#eeeeee;
+margin-left:40%;
+`
 
 interface IconImage {
   width?: number;
   height?: number;
+  marginLeft?:string;
+}
+interface textProps{
+  fontColor: string;
 }
 
 interface viewProps {
   width?: number;
   height?: number;
+  marginLeft?:number;
   top?: number;
   iPosition?: string;
 }

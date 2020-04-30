@@ -51,22 +51,12 @@ const MyCarousel = (props: any) => {
     setEntries(ENTRIES1);
   }, []);
 
-  const renderItem = ({item, index}, parallaxProps) => {
-    return (
-      <View style={styles.item}>
-        <ParallaxImage
-          source={{uri: item.illustration}}
-          containerStyle={styles.imageContainer}
-          style={styles.image}
-          parallaxFactor={0.7}
-          {...parallaxProps}
-        />
-        <Text style={styles.title} numberOfLines={2}>
-          {item.title}
-        </Text>
-      </View>
-    );
-  };
+  const renderItem = ({item, index}, parallaxProps) => (<View style={styles.item}>
+    <ParallaxImage source={{ uri: item.illustration }} containerStyle={styles.imageContainer} style={styles.image} parallaxFactor={0.7} {...parallaxProps} />
+    <Text style={styles.title} numberOfLines={2}>
+      {item.title}
+    </Text>
+  </View>);
 
   return (
     <View style={styles.container}>
@@ -74,7 +64,7 @@ const MyCarousel = (props: any) => {
         <Text>go to next slide</Text>
       </TouchableOpacity> */}
       <Carousel
-        ref={carouselRef}
+        // ref={carouselRef}
         sliderWidth={screenWidth}
         sliderHeight={screenWidth}
         itemWidth={screenWidth - 60}

@@ -51,6 +51,16 @@ const AppLayout = () => {
       </Container>
    {/*MyCorsoal Start */} 
 
+   {/* Category Viewer Start  */}
+   <LayoutContainer>
+     <Container>
+     <AppView width={windowWidth - 45} height={40} iPosition={'flex-start'}>
+          <RowView fontColor="black">Discover Grocery</RowView>
+        </AppView>
+       </Container>
+   </LayoutContainer>
+   {/* Category Viewer Start  */}
+
    {/*Footer Start */}
    
     </LayoutContainer>

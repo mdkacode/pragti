@@ -75,6 +75,7 @@ background-color:#eeeeee;
 margin-left:40%;
 `
 
+// Define Props here 
 interface IconImage {
   width?: number;
   height?: number;

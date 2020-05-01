@@ -49,6 +49,13 @@ export const IconImage = styled.Image`
   margin:${(p: IconImage) => p.margin || 0}px;
 `;
 
+export const LayoutContainer = styled.ScrollView`
+  flex: 1;
+  background-color:#eeeeee;
+  flex-direction: column;
+  margin-top:15px;
+`;
+
 export const CircleArea = styled.View`
 /* border-radius: 6px; */
 /* border-width:1px; */

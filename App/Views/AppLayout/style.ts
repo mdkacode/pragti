@@ -8,6 +8,7 @@ export const LayoutContainer = styled.ScrollView`
   flex: 1;
   background-color:#eeeeee;
   flex-direction: column;
+  margin-top:15px;
 `;
 
 export const TextBox = styled.TextInput`

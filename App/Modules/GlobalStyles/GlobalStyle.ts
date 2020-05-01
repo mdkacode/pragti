@@ -1,8 +1,98 @@
-import styled from 'styled-components';
+import styled from 'styled-components/native';
+import {Dimensions} from 'react-native';
+const windowWidth = Dimensions.get('window').width;
+//  const windowHeight = Dimensions.get('window').height;
 
-export const Container = styled.view`
+export const Container = styled.View`
   flex: 1;
-  background-color: white;
-  justify-content: center;
-  align-items: center;
+  flex-direction:row;
 `;
+
+
+// Global Style 
+
+export const AppView = styled.View`
+  width: ${(p: viewProps) => (p.width ? p.width : 0)}px;
+  height: ${(p: viewProps) => (p.height ? p.height : 0)}px;
+  margin-top: ${(p: viewProps) => (p.top ? p.top : 0)}px;
+  align-items: ${(p: viewProps) => (p.iPosition ? p.iPosition : 'flex-start')};
+  margin-top: 15px;
+  margin-right:${(p:viewProps) => ( p.items ?  windowWidth/p.items : 0)}px;
+  padding-left:${(p: viewProps) => (p.marginLeft ? p.marginLeft : 0)}px;
+`;
+
+export const RowView = styled.Text`
+  padding-left: ${(p:textProps) => (p.paddingLeft ? p.paddingLeft : 0)}px;
+  padding: ${(p:textProps) => (p.padding ? p.padding : 0)}px;
+  font-size: ${(p:textProps) => (p.fontize ? p.fontize : 20)}px;
+  font-weight: 900;
+  /* text-align:center; */
+  margin-left:${(p:textProps) => (p.paddingLeft ? p.paddingLeft : 0)}px;
+  color : ${(p: textProps) => (p.fontColor ? p.fontColor : 'white')};
+  font-family: 'OpenSans-Bold';
+`;
+
+export const HorizontalViewScroll = styled.ScrollView`
+width: ${(p: viewProps) => (p.width ? p.width : 0)}px;
+  height: ${(p: viewProps) => (p.height ? p.height : 0)}px;
+  margin-top: ${(p: viewProps) => (p.top ? p.top : 0)}px;
+  align-items: ${(p: viewProps) => (p.iPosition ? p.iPosition : 'flex-start')};
+  margin-top: 15px;
+  margin-right:${(p:viewProps) => ( p.items ?  windowWidth/p.items : 0)}px;
+  padding-left:${(p: viewProps) => (p.marginLeft ? p.marginLeft : 0)}px;
+
+`
+
+export const IconImage = styled.Image`
+  width: ${(p: IconImage) => p.width}px;
+  height: ${(p: IconImage) => p.height}px;
+  margin:${(p: IconImage) => p.margin || 0}px;
+`;
+
+export const CircleArea = styled.View`
+/* border-radius: 6px; */
+/* border-width:1px; */
+margin-right:${windowWidth/10}px;
+height:${(p:circleImages) => (p.height || 0)}px;
+margin-left:${(p:circleImages) => (p.marginLeft || 0)}px;
+/* border-color:#1D65a6; */
+`
+
+
+interface IconImage {
+  width?: number;
+  height?: number;
+  margin?: number;
+  marginLeft?:string;
+}
+interface viewProps {
+  width?: number;
+  height?: number;
+  marginLeft?:number;
+  top?: number;
+  items?: number;
+  iPosition?: string;
+}
+
+interface textProps{
+  fontColor: string;
+  paddingLeft?:number;
+  padding?: number;
+  fontize?: number;
+}
+
+interface viewProps {
+  width?: number;
+  height?: number;
+  marginLeft?:number;
+  top?: number;
+  items?: number;
+  iPosition?: string;
+}
+
+
+interface circleImages {
+  marginLeft?: number;
+  height?: number;
+  width?: number;
+}

@@ -53,7 +53,7 @@ const MyCarousel = (props: any) => {
 
   const renderItem = ({item, index}, parallaxProps) => (<View style={styles.item}>
     <ParallaxImage source={{ uri: item.illustration }} containerStyle={styles.imageContainer} style={styles.image} parallaxFactor={0.7} {...parallaxProps} />
-    <Text style={styles.title} numberOfLines={2}>
+    <Text numberOfLines={2}>
       {item.title}
     </Text>
   </View>);

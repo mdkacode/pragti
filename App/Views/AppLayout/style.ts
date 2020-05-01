@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import {Dimensions} from 'react-native';
+import {Dimensions, ViewProps} from 'react-native';
 import {LightColor} from '../../Modules/GlobalStyles/GlobalColors';
 // Global App Width and Height
 const windowWidth = Dimensions.get('window').width;
@@ -46,6 +46,7 @@ export const AppView = styled.View`
   margin-top: ${(p: viewProps) => (p.top ? p.top : 0)}px;
   align-items: ${(p: viewProps) => (p.iPosition ? p.iPosition : 'flex-start')};
   margin-top: 15px;
+  margin-right:${(p:ViewProps) => ( p.items ?  windowWidth/p.items : 0)}px;
   padding-left:${(p: viewProps) => (p.marginLeft ? p.marginLeft : 0)}px;
 `;
 
@@ -59,9 +60,10 @@ export const AppFooter = styled.View`
   width: ${(p: viewProps) => (p.width ? p.width : 0)}px;
   height: ${(p: viewProps) => (p.height ? p.height : 0)}px;
   position: absolute;
-  background-color:#aa00ff;
+  background-color:#192E5B;
   color:white;
-  border-radius: 10px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
   bottom: 0;
 `;
 
@@ -90,5 +92,6 @@ interface viewProps {
   height?: number;
   marginLeft?:number;
   top?: number;
+  items?: number;
   iPosition?: string;
 }

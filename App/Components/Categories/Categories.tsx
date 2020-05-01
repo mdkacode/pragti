@@ -19,7 +19,7 @@ const Categories = () =>{
                   height={30}
                   margin={12}
                 />
-                 <RowView paddingLeft={15} fontize={12} fontColor="black">Fruits</RowView>
+                 <RowView paddingLeft={5} fontize={12} fontColor="black">Fruits</RowView>
               </View>
               </CircleArea>
               <CircleArea height={500}  width={windowWidth/6} >
@@ -30,7 +30,7 @@ const Categories = () =>{
                   height={30}
                   margin={12}
                 />
-                 <RowView paddingLeft={15} fontize={12} fontColor="black">Aata</RowView>
+                 <RowView paddingLeft={5} fontize={12} fontColor="black">Aata</RowView>
               </View>
               </CircleArea>
               <CircleArea height={500}  width={windowWidth/6} >
@@ -41,7 +41,7 @@ const Categories = () =>{
                   height={30}
                   margin={12}
                 />
-                 <RowView paddingLeft={1} fontize={12} fontColor="black">Vegitables</RowView>
+                 <RowView paddingLeft={1} fontize={12} fontColor="black">Vegitable</RowView>
               </View>
               </CircleArea>
               <CircleArea height={500}  width={windowWidth/6} >
@@ -52,7 +52,7 @@ const Categories = () =>{
                   height={30}
                   margin={12}
                 />
-                 <RowView paddingLeft={15} fontize={12} fontColor="black">Soap</RowView>
+                 <RowView paddingLeft={1} fontize={12} fontColor="black">Soaps</RowView>
               </View>
               </CircleArea>
               <CircleArea height={500}  width={windowWidth/6} >
@@ -74,7 +74,7 @@ const Categories = () =>{
                   height={30}
                   margin={12}
                 />
-                 <RowView paddingLeft={15} fontize={12} fontColor="black">All</RowView>
+                 <RowView paddingLeft={12} fontize={12} fontColor="black">All</RowView>
               </View>
               </CircleArea> 
               

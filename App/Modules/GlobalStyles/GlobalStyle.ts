@@ -17,13 +17,17 @@ export const AppView = styled.View`
   margin-top: ${(p: viewProps) => (p.top ? p.top : 0)}px;
   align-items: ${(p: viewProps) => (p.iPosition ? p.iPosition : 'flex-start')};
   margin-top: 15px;
+  /* position:absolute; */
   margin-right:${(p:viewProps) => ( p.items ?  windowWidth/p.items : 0)}px;
   padding-left:${(p: viewProps) => (p.marginLeft ? p.marginLeft : 0)}px;
 `;
 
 export const RowView = styled.Text`
   padding-left: ${(p:textProps) => (p.paddingLeft ? p.paddingLeft : 0)}px;
-  padding: ${(p:textProps) => (p.padding ? p.padding : 0)}px;
+  padding-right: ${(p:textProps) => (p.paddingRight ? p.paddingRight : 0)}px;
+  padding-top: ${(p:textProps) => (p.padding ? p.padding : 0)}px;
+  text-decoration:${(p:textProps) => (p.cut ? 'line-through' : '')};
+  padding-bottom: ${(p:textProps) => (p.padding ? p.padding : 0)}px;
   font-size: ${(p:textProps) => (p.fontize ? p.fontize : 20)}px;
   font-weight: 900;
   /* text-align:center; */
@@ -47,6 +51,7 @@ export const IconImage = styled.Image`
   width: ${(p: IconImage) => p.width}px;
   height: ${(p: IconImage) => p.height}px;
   margin:${(p: IconImage) => p.margin || 0}px;
+
 `;
 
 export const LayoutContainer = styled.ScrollView`
@@ -85,7 +90,9 @@ interface textProps{
   fontColor: string;
   paddingLeft?:number;
   padding?: number;
+  cut?:boolean;
   fontize?: number;
+  paddingRight?:number;
 }
 
 interface viewProps {

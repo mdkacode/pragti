@@ -5,7 +5,7 @@ import { Container,AppView,RowView,IconImage } from "../../Modules/GlobalStyles/
 
 const windowWidth = Dimensions.get("window").width;
 const AppHeader = () =>  <><Container>
-  <AppView width={windowWidth - 45} height={10} iPosition={'flex-start'}>
+  <AppView width={windowWidth - 45}  height={10} iPosition={'flex-start'}>
     <RowView paddingLeft={15} fontColor="black">Discover Grocery</RowView>
   </AppView>
   <AppView iPosition={'flex-end'}>

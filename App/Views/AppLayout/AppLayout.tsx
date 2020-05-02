@@ -8,6 +8,9 @@ import { RowView } from '../../Modules/GlobalStyles/GlobalStyle';
 const MainAppFooter = React.lazy(() => import('../AppFooter/AppFooter'));
 const AppHeader = React.lazy(() => import('../AppHeader/AppHeader'));
 const AppContent = React.lazy(() => import('../AppContent/AppContent'));
+const ProductDetails = React.lazy(() =>
+  import('../ProductDetail/ProductDetail'),
+);
 
 let productCount = 0;
 const Stack = createStackNavigator();

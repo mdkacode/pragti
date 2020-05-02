@@ -47,15 +47,48 @@ const product = [
   },
 ];
 
+const productDescription = [
+  {
+    title: 'Pepsi',
+    subtitle: 'Pepsi',
+    illustration:
+      'https://cdn.pixabay.com/photo/2016/03/05/19/02/vegetables-1238252_1280.jpg',
+  },
+  {
+    title: 'Pepsi',
+    subtitle: 'Pepsi',
+    illustration:
+      'https://cdn.pixabay.com/photo/2017/06/02/18/24/fruit-2367029_1280.jpg',
+  },
+  {
+    title: 'Pepsi',
+    subtitle: 'Pepsi',
+    illustration:
+      'https://cdn.pixabay.com/photo/2016/06/29/19/54/healthy-food-1487647_1280.jpg',
+  },
+  {
+    title: 'Pepsi',
+    subtitle: 'Pepsi',
+    illustration:
+      'https://cdn.pixabay.com/photo/2017/06/06/22/37/italian-cuisine-2378729_1280.jpg',
+  },
+  {
+    title: 'Pepsi',
+    subtitle: 'Pepsi',
+    illustration:
+      'https://cdn.pixabay.com/photo/2017/06/02/18/24/fruit-2367029_1280.jpg',
+  },
+];
+
 const AppContent = () => {
   return (
     <LayoutContainer
       showsVerticalScrollIndicator={false}
       showsHorizontalScrollIndicator={false}
       marginTop={1}>
-      <AppView width={width} height={200} marginHeight={10}>
-        <MyCorsoal />
-      </AppView>
+      {/* <AppView width={width} height={200} marginHeight={10}> */}
+      <MyCorsoal content={productDescription} />
+      {/* </AppView> */}
       <Categories />
 
       {/* Popular Product START */}

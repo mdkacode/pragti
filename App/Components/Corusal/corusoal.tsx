@@ -9,6 +9,13 @@ import {
   Platform,
 } from 'react-native';
 
+interface props {
+  width: number;
+  height: number;
+  marginTop: number;
+  text: boolean;
+  content: any;
+}
 const ENTRIES1 = [
   {
     title: 'Beautiful and dramatic Antelope Canyon',
@@ -37,9 +44,10 @@ const ENTRIES1 = [
     illustration: 'https://i.imgur.com/2nCt3Sbl.jpg',
   },
 ];
-const { width: screenWidth } = Dimensions.get('window');
+const { width: screenWidth, height: screenHeight } = Dimensions.get('screen');
 
-const MyCarousel = (props: any) => {
+let ScreenWidth = screenWidth;
+const MyCarousel = (props: props) => {
   const [entries, setEntries] = useState([]);
   const carouselRef = useRef(null);
 
@@ -48,19 +56,24 @@ const MyCarousel = (props: any) => {
   };
 
   useEffect(() => {
-    setEntries(ENTRIES1);
+    setEntries(props.content);
   }, []);
 
   const renderItem = ({ item, index }, parallaxProps) => (
-    <View style={styles.item}>
+    <View
+      style={{
+        width: ScreenWidth - (props.width || 0),
+        height: screenHeight / (props.height || 3),
+        marginTop: props.marginTop || 0,
+      }}>
       <ParallaxImage
         source={{ uri: item.illustration }}
         containerStyle={styles.imageContainer}
         style={styles.image}
-        parallaxFactor={0.7}
+        parallaxFactor={0.8}
         {...parallaxProps}
       />
-      <Text numberOfLines={2}>{item.title}</Text>
+      {props.text && <Text numberOfLines={2}>{item.title}</Text>}
     </View>
   );
 
@@ -71,9 +84,9 @@ const MyCarousel = (props: any) => {
       </TouchableOpacity> */}
       <Carousel
         // ref={carouselRef}
-        sliderWidth={screenWidth}
-        sliderHeight={screenWidth}
-        itemWidth={screenWidth - 60}
+        sliderWidth={ScreenWidth - (props.width || 0)}
+        sliderHeight={screenHeight / (props.height || 3)}
+        itemWidth={ScreenWidth}
         data={entries}
         renderItem={renderItem}
         hasParallaxImages={true}
@@ -87,20 +100,17 @@ export default MyCarousel;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  item: {
-    width: screenWidth - 60,
-    height: screenWidth - 200,
-    marginTop: 0,
+    left: 0,
   },
   imageContainer: {
     flex: 1,
     marginBottom: Platform.select({ ios: 0, android: 1 }), // Prevent a random Android rendering issue
-    backgroundColor: 'white',
+    backgroundColor: '#eeee',
     borderRadius: 8,
+    left: 0,
   },
   image: {
     ...StyleSheet.absoluteFillObject,
-    resizeMode: 'cover',
+    resizeMode: 'contain',
   },
 });

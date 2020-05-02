@@ -28,11 +28,16 @@ export const RowView = styled.Text`
   text-decoration: ${(p: textProps) => (p.cut ? 'line-through' : '')};
   padding-bottom: ${(p: textProps) => (p.padding ? p.padding : 0)}px;
   font-size: ${(p: textProps) => (p.fontize ? p.fontize : 20)}px;
-  font-weight: 900;
+  font-weight: 100;
   /* text-align:center; */
   margin-left: ${(p: textProps) => (p.paddingLeft ? p.paddingLeft : 0)}px;
   color: ${(p: textProps) => (p.fontColor ? p.fontColor : 'white')};
-  font-family: 'OpenSans-Bold';
+  font-family: ${(p: textProps) =>
+    p.fontFormat == 'Italic'
+      ? 'OpenSans-Italic'
+      : p.fontFormat == 'Normal'
+      ? 'OpenSans'
+      : 'OpenSans-Bold'};
 `;
 
 export const HorizontalViewScroll = styled.ScrollView`
@@ -87,6 +92,7 @@ interface textProps {
   paddingLeft?: number;
   padding?: number;
   cut?: boolean;
+  fontFormat?: string;
   fontize?: number;
   paddingRight?: number;
 }

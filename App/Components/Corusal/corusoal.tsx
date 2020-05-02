@@ -1,5 +1,5 @@
-import React, {useRef, useState, useEffect} from 'react';
-import Carousel, {ParallaxImage} from 'react-native-snap-carousel';
+import React, { useRef, useState, useEffect } from 'react';
+import Carousel, { ParallaxImage } from 'react-native-snap-carousel';
 import {
   View,
   Text,
@@ -37,7 +37,7 @@ const ENTRIES1 = [
     illustration: 'https://i.imgur.com/2nCt3Sbl.jpg',
   },
 ];
-const {width: screenWidth} = Dimensions.get('window');
+const { width: screenWidth } = Dimensions.get('window');
 
 const MyCarousel = (props: any) => {
   const [entries, setEntries] = useState([]);
@@ -51,10 +51,10 @@ const MyCarousel = (props: any) => {
     setEntries(ENTRIES1);
   }, []);
 
-  const renderItem = ({item, index}, parallaxProps) => (
+  const renderItem = ({ item, index }, parallaxProps) => (
     <View style={styles.item}>
       <ParallaxImage
-        source={{uri: item.illustration}}
+        source={{ uri: item.illustration }}
         containerStyle={styles.imageContainer}
         style={styles.image}
         parallaxFactor={0.7}
@@ -91,11 +91,11 @@ const styles = StyleSheet.create({
   item: {
     width: screenWidth - 60,
     height: screenWidth - 200,
-    marginTop: 30,
+    marginTop: 0,
   },
   imageContainer: {
     flex: 1,
-    marginBottom: Platform.select({ios: 0, android: 1}), // Prevent a random Android rendering issue
+    marginBottom: Platform.select({ ios: 0, android: 1 }), // Prevent a random Android rendering issue
     backgroundColor: 'white',
     borderRadius: 8,
   },

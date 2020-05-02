@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import {Dimensions} from 'react-native';
+import { Dimensions } from 'react-native';
 const windowWidth = Dimensions.get('window').width;
 //  const windowHeight = Dimensions.get('window').height;
 
@@ -13,9 +13,9 @@ export const Container = styled.View`
 export const AppView = styled.View`
   width: ${(p: viewProps) => (p.width ? p.width : 0)}px;
   height: ${(p: viewProps) => (p.height ? p.height : 0)}px;
-  margin-top: ${(p: viewProps) => (p.top ? p.top : 0)}px;
+  /* margin-top: ${(p: viewProps) => (p.top ? p.top : 0)}px; */
   align-items: ${(p: viewProps) => (p.iPosition ? p.iPosition : 'flex-start')};
-  margin-top: 15px;
+  margin-top: ${(p: viewProps) => (p.marginHeight ? p.marginHeight : 15)}px;
   /* position:absolute; */
   margin-right: ${(p: viewProps) => (p.items ? windowWidth / p.items : 0)}px;
   padding-left: ${(p: viewProps) => (p.marginLeft ? p.marginLeft : 0)}px;
@@ -55,7 +55,7 @@ export const LayoutContainer = styled.ScrollView`
   flex: 1;
   background-color: #eeeeee;
   flex-direction: column;
-  margin-top: 15px;
+  margin-top: ${(p: layoutProps) => p.marginTop || 15}px;
 `;
 
 export const CircleArea = styled.View`
@@ -95,6 +95,7 @@ interface viewProps {
   width?: number;
   height?: number;
   marginLeft?: number;
+  marginHeight?: number;
   top?: number;
   items?: number;
   iPosition?: string;
@@ -104,4 +105,8 @@ interface circleImages {
   marginLeft?: number;
   height?: number;
   width?: number;
+}
+
+interface layoutProps {
+  marginTop?: number;
 }

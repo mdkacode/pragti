@@ -51,12 +51,18 @@ const MyCarousel = (props: any) => {
     setEntries(ENTRIES1);
   }, []);
 
-  const renderItem = ({item, index}, parallaxProps) => (<View style={styles.item}>
-    <ParallaxImage source={{ uri: item.illustration }} containerStyle={styles.imageContainer} style={styles.image} parallaxFactor={0.7} {...parallaxProps} />
-    <Text numberOfLines={2}>
-      {item.title}
-    </Text>
-  </View>);
+  const renderItem = ({item, index}, parallaxProps) => (
+    <View style={styles.item}>
+      <ParallaxImage
+        source={{uri: item.illustration}}
+        containerStyle={styles.imageContainer}
+        style={styles.image}
+        parallaxFactor={0.7}
+        {...parallaxProps}
+      />
+      <Text numberOfLines={2}>{item.title}</Text>
+    </View>
+  );
 
   return (
     <View style={styles.container}>

@@ -5,11 +5,10 @@ const windowWidth = Dimensions.get('window').width;
 
 export const Container = styled.View`
   flex: 1;
-  flex-direction:row;
+  flex-direction: row;
 `;
 
-
-// Global Style 
+// Global Style
 
 export const AppView = styled.View`
   width: ${(p: viewProps) => (p.width ? p.width : 0)}px;
@@ -18,92 +17,88 @@ export const AppView = styled.View`
   align-items: ${(p: viewProps) => (p.iPosition ? p.iPosition : 'flex-start')};
   margin-top: 15px;
   /* position:absolute; */
-  margin-right:${(p:viewProps) => ( p.items ?  windowWidth/p.items : 0)}px;
-  padding-left:${(p: viewProps) => (p.marginLeft ? p.marginLeft : 0)}px;
+  margin-right: ${(p: viewProps) => (p.items ? windowWidth / p.items : 0)}px;
+  padding-left: ${(p: viewProps) => (p.marginLeft ? p.marginLeft : 0)}px;
 `;
 
 export const RowView = styled.Text`
-  padding-left: ${(p:textProps) => (p.paddingLeft ? p.paddingLeft : 0)}px;
-  padding-right: ${(p:textProps) => (p.paddingRight ? p.paddingRight : 0)}px;
-  padding-top: ${(p:textProps) => (p.padding ? p.padding : 0)}px;
-  text-decoration:${(p:textProps) => (p.cut ? 'line-through' : '')};
-  padding-bottom: ${(p:textProps) => (p.padding ? p.padding : 0)}px;
-  font-size: ${(p:textProps) => (p.fontize ? p.fontize : 20)}px;
+  padding-left: ${(p: textProps) => (p.paddingLeft ? p.paddingLeft : 0)}px;
+  padding-right: ${(p: textProps) => (p.paddingRight ? p.paddingRight : 0)}px;
+  padding-top: ${(p: textProps) => (p.padding ? p.padding : 0)}px;
+  text-decoration: ${(p: textProps) => (p.cut ? 'line-through' : '')};
+  padding-bottom: ${(p: textProps) => (p.padding ? p.padding : 0)}px;
+  font-size: ${(p: textProps) => (p.fontize ? p.fontize : 20)}px;
   font-weight: 900;
   /* text-align:center; */
-  margin-left:${(p:textProps) => (p.paddingLeft ? p.paddingLeft : 0)}px;
-  color : ${(p: textProps) => (p.fontColor ? p.fontColor : 'white')};
+  margin-left: ${(p: textProps) => (p.paddingLeft ? p.paddingLeft : 0)}px;
+  color: ${(p: textProps) => (p.fontColor ? p.fontColor : 'white')};
   font-family: 'OpenSans-Bold';
 `;
 
 export const HorizontalViewScroll = styled.ScrollView`
-width: ${(p: viewProps) => (p.width ? p.width : 0)}px;
+  width: ${(p: viewProps) => (p.width ? p.width : 0)}px;
   height: ${(p: viewProps) => (p.height ? p.height : 0)}px;
   margin-top: ${(p: viewProps) => (p.top ? p.top : 0)}px;
   align-items: ${(p: viewProps) => (p.iPosition ? p.iPosition : 'flex-start')};
   margin-top: 15px;
-  margin-right:${(p:viewProps) => ( p.items ?  windowWidth/p.items : 0)}px;
-  padding-left:${(p: viewProps) => (p.marginLeft ? p.marginLeft : 0)}px;
-
-`
+  margin-right: ${(p: viewProps) => (p.items ? windowWidth / p.items : 0)}px;
+  padding-left: ${(p: viewProps) => (p.marginLeft ? p.marginLeft : 0)}px;
+`;
 
 export const IconImage = styled.Image`
   width: ${(p: IconImage) => p.width}px;
   height: ${(p: IconImage) => p.height}px;
-  margin:${(p: IconImage) => p.margin || 0}px;
-
+  margin: ${(p: IconImage) => p.margin || 0}px;
 `;
 
 export const LayoutContainer = styled.ScrollView`
   flex: 1;
-  background-color:#eeeeee;
+  background-color: #eeeeee;
   flex-direction: column;
-  margin-top:15px;
+  margin-top: 15px;
 `;
 
 export const CircleArea = styled.View`
-/* border-radius: 6px; */
-/* border-width:1px; */
-margin-right:${windowWidth/10}px;
-height:${(p:circleImages) => (p.height || 0)}px;
-margin-left:${(p:circleImages) => (p.marginLeft || 0)}px;
-/* border-color:#1D65a6; */
-`
-
+  /* border-radius: 6px; */
+  /* border-width:1px; */
+  margin-right: ${windowWidth / 10}px;
+  height: ${(p: circleImages) => p.height || 0}px;
+  margin-left: ${(p: circleImages) => p.marginLeft || 0}px;
+  /* border-color:#1D65a6; */
+`;
 
 interface IconImage {
   width?: number;
   height?: number;
   margin?: number;
-  marginLeft?:string;
+  marginLeft?: string;
 }
 interface viewProps {
   width?: number;
   height?: number;
-  marginLeft?:number;
+  marginLeft?: number;
   top?: number;
   items?: number;
   iPosition?: string;
 }
 
-interface textProps{
+interface textProps {
   fontColor: string;
-  paddingLeft?:number;
+  paddingLeft?: number;
   padding?: number;
-  cut?:boolean;
+  cut?: boolean;
   fontize?: number;
-  paddingRight?:number;
+  paddingRight?: number;
 }
 
 interface viewProps {
   width?: number;
   height?: number;
-  marginLeft?:number;
+  marginLeft?: number;
   top?: number;
   items?: number;
   iPosition?: string;
 }
-
 
 interface circleImages {
   marginLeft?: number;

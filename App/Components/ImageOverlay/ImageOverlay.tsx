@@ -19,7 +19,7 @@ const ImageOverlay = (props: ImageProps) => {
 export default ImageOverlay;
 
 const Imageackground = styled.ImageBackground`
-    flex: 1;
+  flex: 1;
   height: ${width * 0.25 + 10}px;
   width: ${width * 0.25}px;
   justify-content: flex-end;

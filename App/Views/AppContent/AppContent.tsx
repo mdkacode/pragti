@@ -1,5 +1,8 @@
 import React from 'react';
 import { Dimensions, StatusBar, ScrollView } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
 import Categories from '../../Components/Categories/Categories';
 import MyCorsoal from '../../Components/Corusal/corusoal';
 import SingleProduct from '../../Components/SingleProduct/SingleProduct';
@@ -80,15 +83,21 @@ const productDescription = [
   },
 ];
 
-const AppContent = () => {
+const AppContent = ({ navigation }) => {
+  const getProduct = (e: any) => {
+    console.log(e);
+    navigation.navigate('ProductDetail', {
+      name: e.name,
+    });
+  };
   return (
     <LayoutContainer
       showsVerticalScrollIndicator={false}
       showsHorizontalScrollIndicator={false}
       marginTop={1}>
-      {/* <AppView width={width} height={200} marginHeight={10}> */}
-      <MyCorsoal content={productDescription} />
-      {/* </AppView> */}
+      <AppView width={width} height={200} marginHeight={10}>
+        <MyCorsoal content={productDescription} height={2} />
+      </AppView>
       <Categories />
 
       {/* Popular Product START */}
@@ -101,7 +110,7 @@ const AppContent = () => {
           style={{ flex: 1, height: 130, marginTop: 10 }}
           showsHorizontalScrollIndicator={false}>
           {product.map((e) => (
-            <SingleProduct List={e} />
+            <SingleProduct List={e} action={getProduct} />
           ))}
         </ScrollView>
       </LayoutContainer>
@@ -115,7 +124,7 @@ const AppContent = () => {
           style={{ flex: 1, height: 220, marginTop: 5 }}
           showsHorizontalScrollIndicator={false}>
           {product.map((e) => (
-            <SingleProduct List={e} />
+            <SingleProduct List={e} action={getProduct} />
           ))}
         </ScrollView>
       </LayoutContainer>

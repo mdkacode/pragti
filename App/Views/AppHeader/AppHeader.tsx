@@ -7,8 +7,11 @@ import {
   IconImage,
 } from '../../Modules/GlobalStyles/GlobalStyle';
 
+interface NavProps {
+  titleName: string;
+}
 const windowWidth = Dimensions.get('window').width;
-const AppHeader = () => (
+const AppHeader = (props: NavProps) => (
   <>
     <Container>
       <AppView
@@ -17,7 +20,7 @@ const AppHeader = () => (
         height={25}
         iPosition={'flex-start'}>
         <RowView paddingLeft={0} fontColor="black">
-          Discover Grocery
+          {props.titleName}
         </RowView>
       </AppView>
       <AppView marginHeight={1} height={5} iPosition={'flex-end'}>

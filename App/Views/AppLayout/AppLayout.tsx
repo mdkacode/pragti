@@ -3,7 +3,6 @@ import React, { useState, Suspense } from 'react';
 import { Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { RowView } from '../../Modules/GlobalStyles/GlobalStyle';
 
 const MainAppFooter = React.lazy(() => import('../AppFooter/AppFooter'));
 const AppHeader = React.lazy(() => import('../AppHeader/AppHeader'));
@@ -17,6 +16,7 @@ const Stack = createStackNavigator();
 const AppLayout = () => {
   const [addProduct, setAddProduct] = useState(true);
   const [cout, setCount] = useState(0);
+  const [isFooter, setFooter] = useState(true);
 
   const AddProduct = () => {
     setAddProduct(false);
@@ -35,9 +35,15 @@ const AppLayout = () => {
           <Stack.Screen
             name="Home"
             component={AppContent}
-            options={{ headerTitle: (props) => <AppHeader /> }}
+            options={{ headerTitle: (props) => <AppHeader titleName="Home" /> }}
           />
-          <Stack.Screen name="Footer" component={MainAppFooter} />
+          <Stack.Screen
+            name="ProductDetail"
+            component={ProductDetails}
+            options={({ route }) => ({
+              headerTitle: <Text>{route.params['name']}</Text>,
+            })}
+          />
         </Stack.Navigator>
       </NavigationContainer>
       <MainAppFooter />

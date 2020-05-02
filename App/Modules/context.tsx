@@ -1,16 +1,16 @@
 import Actions from './action';
 import React from 'react';
 
-const initialState = {rating: 1};
+const initialState = { rating: 1 };
 
 const reducer = (state: any, action: any) => {
   switch (action.Type) {
     case Actions.RATING:
-      return {...state, rating: action.value};
+      return { ...state, rating: action.value };
     case Actions.RESET:
-      return {...state, rating: action.value};
+      return { ...state, rating: action.value };
     default:
-      return {...state, ...initialState};
+      return { ...state, ...initialState };
   }
 };
 
@@ -22,7 +22,7 @@ const Provider = (children: any) => {
   const value = {
     rating: state.rating,
 
-    reset: () => dispatch({type: Actions.RESET}),
+    reset: () => dispatch({ type: Actions.RESET }),
   };
 
   return (

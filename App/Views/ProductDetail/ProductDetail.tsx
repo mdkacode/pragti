@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View } from 'react-native';
 import {
   LayoutContainer,
@@ -17,6 +17,7 @@ import { DeviceWidth } from '../../Components/DeviceDeminsions/DeviceDeminsions'
 import DescriptionList from '../../Components/DescriptionList/DescriptionList';
 import { ScrollView } from 'react-native-gesture-handler';
 import SingleProduct from '../../Components/SingleProduct/SingleProduct';
+import { ApplicationContext } from '../../Modules/context';
 
 const product = [
   {
@@ -70,6 +71,9 @@ const productDescription = [
   },
 ];
 const ProductDetail = () => {
+  const getData = useContext(ApplicationContext);
+  console.log(getData, 'Context Data Product');
+  getData.rating = 3;
   return (
     <LayoutContainer
       showsVerticalScrollIndicator={false}
@@ -77,7 +81,7 @@ const ProductDetail = () => {
       marginTop={1}>
       <MyCarousel
         text={false}
-        width={40}
+        width={1}
         height={1.7}
         content={productDescription}
       />
